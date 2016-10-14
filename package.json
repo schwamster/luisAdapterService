@@ -1,0 +1,27 @@
+{
+  "name": "luis-adapter-service",
+  "version": "1.0.0",
+  "description": "simple node based api that uses luis-adapter (npm-package)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schwamster/luisAdapterService.git"
+  },
+  "keywords": [
+    "luis"
+  ],
+  "author": "Bastian Töpfer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schwamster/luisAdapterService/issues"
+  },
+  "homepage": "https://github.com/schwamster/luisAdapterService#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "luis-adapter": "^0.1.2"
+  }
+}
