@@ -38,3 +38,5 @@ jspm_packages
 /typings
 /index.js.map
 /index.js
+/utils.js
+/utils.js.map

@@ -1,12 +1,37 @@
-import * as Promise from "bluebird";
 
-import {LuisAdapter} from 'luis-adapter/dist';
+import * as express from 'express';
+import {utils} from './utils';
 
-var options = {appId: "c413b2ef-382c-45bd-8ff0-f76d60e2a821", subscriptionKey: process.env.LuisSubscriptionKey };
+var app = express();
 
-var la = new LuisAdapter(options);
+app.use(function(req: any, res, next){
+  if (req.is('text/*')) {
+    req.text = '';
+    req.setEncoding('utf8');
+    req.on('data', function(chunk){ req.text += chunk });
+    req.on('end', next);
+  } else {
+    next();
+  }
+});
 
-la.query("set up an appointment at 2:00 pm tomorrow for 90 minutes called discuss budget", null, null).then((result) => 
-{
-    console.log(result);
+app.get('/', function (req: any, res) {
+  res.send("POST the text you want to analyze to this enpoint");
+});
+
+app.post('/', function (req: any, res) {
+  let text = req.text;
+
+  utils.analyze(text).then((result) =>{
+    var json = JSON.stringify(result);
+    res.send(`${json}`);
+  }).error((reason) => {
+    console.log(`Error while querying luis => ${reason}`);
+    res.send("something went wrong");
+  });
+});
+
+var PORT =process.env.PORT | 3000;
+app.listen(PORT , function() {
+    console.log("HTTP server listening on port %s", PORT);
 });

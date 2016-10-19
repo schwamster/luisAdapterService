@@ -22,6 +22,7 @@
   "homepage": "https://github.com/schwamster/luisAdapterService#readme",
   "dependencies": {
     "bluebird": "^3.4.6",
+    "express": "^4.14.0",
     "luis-adapter": "^0.1.2"
   }
 }
