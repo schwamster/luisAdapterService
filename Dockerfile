@@ -1,6 +1,6 @@
 FROM node:4.6
 
-RUN apt-get update && npm install -g typescript nodemon
+RUN apt-get update && npm install -g typescript nodemon typings
 
 RUN mkdir app
 WORKDIR /app
@@ -10,7 +10,7 @@ RUN npm install
 
 COPY . /app
 
-RUN tsc
+RUN typings install && tsc
 
 EXPOSE 3000
 
