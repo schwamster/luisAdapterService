@@ -1,5 +1,7 @@
 # luis_adapter_service
 
+This project is a subset of https://github.com/schwamster/docStack
+
 To start either run directly with npm install && typings install && tsc
 then  npm start
 
