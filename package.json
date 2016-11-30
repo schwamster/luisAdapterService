@@ -27,6 +27,8 @@
     "luis-adapter": "^0.1.2"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.5.38",
+    "@types/node": "0.0.1",
     "browserify": "^13.1.1",
     "jasmine": "^2.5.2",
     "karma": "^1.3.0",
